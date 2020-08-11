@@ -12,6 +12,7 @@ using MySql.Data.MySqlClient;
 using SqlKata.Compilers;
 using SqlKata.Execution;
 using Serilog;
+using MvcExample.Services;
 
 namespace MvcExample
 {
@@ -28,6 +29,8 @@ namespace MvcExample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddTransient<CarService>();
 
             services.AddTransient<QueryFactory>(provider =>
             {
